@@ -23,5 +23,5 @@ Imports:
     tools 
 License: GPL
 LazyLoad: yes
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Suggests: testthat

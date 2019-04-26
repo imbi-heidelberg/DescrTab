@@ -87,6 +87,8 @@ If it is not specified, 45 will be used for "\code{landscape = FALSE}" and 30 wi
 
 \item{digits.p}{Number of digits for presentation in the table: For percentages.}
 
+\item{q.type}{an integer between 1 and 9 selecting one of the nine quantile algorithms detailed in \code{?quantile} to be used.}
+
 \item{silent}{Logical. Should intermediate stages be shown (more for technical reasons)?}
 
 \item{...}{further arguments to be passed to or from methods.}

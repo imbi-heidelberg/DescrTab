@@ -29,10 +29,10 @@
 #' inqur(x, k = c(3))
 #' }
 #'
-inqur <- function(x, k = c()) {
+inqur <- function(x, k = c(), q.type=2) {
   if (length(x) > 1){
-    x.q1 <- quantile(x, type = 7)[2]
-    x.q3 <- quantile(x, type = 7)[4]
+    x.q1 <- quantile(x, type = q.type)[2]
+    x.q3 <- quantile(x, type = q.type)[4]
     if (is.null(k)) {
       if (as.integer(x.q1 / 0.25 / 2) == (x.q1 / 0.25 / 2) | (as.integer(x.q1 / 0.25) != (x.q1 / 0.25))) {
         x.q1 <- round(x.q1, 1)

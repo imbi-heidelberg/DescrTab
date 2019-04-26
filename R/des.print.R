@@ -90,6 +90,8 @@
 #' Number of digits for presentation in the table: For minimum and maximum.
 #' @param digits.p
 #' Number of digits for presentation in the table: For percentages.
+#' @param q.type
+#' an integer between 1 and 9 selecting one of the nine quantile algorithms detailed in \code{?quantile} to be used.
 #' @param silent
 #' Logical. Should intermediate stages be shown (more for technical reasons)?
 #' @param ...
@@ -215,7 +217,7 @@ des.print <- function(dat, group, create = "pdf", file, index = T, fsize = 11,
                       n.or.miss = c("n", "miss", "miss.cat"), group.miss = F, percent.vertical = T, var.names,
                       data.names = T,caption, tab.caption, landscape = F, pos.pagebr = NULL,
                       label = NULL, digits.m = 1, digits.sd = 2, digits.qu = c(),
-                      digits.minmax = 1, digits.p = 1, silent = T, ...) {
+                      digits.minmax = 1, digits.p = 1, q.type=2, silent = T, ...) {
 
   ##Input data correction
   if (!("groups" %in% which.col) & !("total" %in% which.col))
@@ -291,7 +293,7 @@ des.print <- function(dat, group, create = "pdf", file, index = T, fsize = 11,
     erg.a <- descr(dat, group, var.names, percent.vertical, data.names, nonparametric, landscape,
                    pos.pagebr, paired, var.equal, correct.cat, correct.wilcox, silent,
                    p.values, groupsize, n.or.miss, group.miss, t.log, index, create, digits.m,
-                   digits.sd, digits.qu, digits.minmax, digits.p)
+                   digits.sd, digits.qu, digits.minmax, digits.p, q.type)
     erg <- erg.a$descr
     if (missing(caption))
       caption <- levels(group)
@@ -493,7 +495,7 @@ des.print <- function(dat, group, create = "pdf", file, index = T, fsize = 11,
     erg.a <- descr(dat, group, var.names, percent.vertical, data.names, nonparametric, landscape,
                    pos.pagebr, paired, var.equal, correct.cat, correct.wilcox, silent,
                    p.values, groupsize, n.or.miss, group.miss, t.log, index, create, digits.m,
-                   digits.sd, digits.qu, digits.minmax, digits.p)
+                   digits.sd, digits.qu, digits.minmax, digits.p, q.type)
     erg <- erg.a$descr
 
     ##which column shoul be printed
