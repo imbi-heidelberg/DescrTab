@@ -882,3 +882,4 @@ des.print <- function(dat, group, create = "knitr", file, index = T, fsize = 11,
     return(erg.a$descr)
   }
 }
+
