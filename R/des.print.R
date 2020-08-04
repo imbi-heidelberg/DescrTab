@@ -15,7 +15,6 @@
 #' 3. As a vector with the same length as the number of rows in \code{dat}.\cr
 #' 4. Nothing. Then you need \code{which.col = ("total")}.\cr
 #' The specified variable has to be a factor variable with two or more levels.
-#' If not specified, a random grouping variable with 2 groups is used.
 #' @param create
 #' Which output document should be produced (one of "pdf", "tex", "knitr","word" or "R").
 #' Choose "custom" if you add more arguments see \code{...}.
@@ -271,13 +270,6 @@ des.print <- function(dat, group, create = "knitr", file, index = T, fsize = 11,
   if (!("groups" %in% which.col) & !("total" %in% which.col))
     stop( "At least, either groups or total must be listed in which.col" )
 
-  if (missing(group)) {
-    group <- as.factor(rep(1, nrow(dat)))
-    which.col <- "total"
-    index <- F
-    group.miss <- F
-    warning( "group is missing! index and group.miss were set to FALSE and which.col were set to \"total\" " )
-  }
   if ("p-values" %in% which.col) {
     p.values <- T
   } else {
@@ -305,6 +297,7 @@ des.print <- function(dat, group, create = "knitr", file, index = T, fsize = 11,
   if (is.character(group)) {
     gr <- which(names(dat) == group)
     group <- dat[[group]]
+    if (!is.factor(group)) stop("group has to be a factor")
     dat <- dat[, -gr, drop = FALSE]
   }
 
