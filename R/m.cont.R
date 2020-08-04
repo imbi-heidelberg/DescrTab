@@ -27,20 +27,20 @@
 m.cont <- function(group, paired = F, is.ordered = F, nonparametric = F, t.log = F) {
   if (length(levels(group)) == 2) {
     if (nonparametric) {
-      pv <- "Wilcox"
+      pv <- "U-Test"
     } else {
-      pv <- "t.test"
+      pv <- "t-Test"
     }
   } else {
     if (paired) {
       if (nonparametric) {
-        pv <- "Friedman"
+        pv <- "Friedman's ANOVA"
       } else {
-        pv <- "Anova Typ III"
+        pv <- "ANOVA (Type III)"
       }
     } else {
       if (nonparametric) {
-        pv <- "kruskal"
+        pv <- "Kruskal-Wallis-Test"
       } else {
         pv <- "aov"
       }

@@ -23,31 +23,31 @@
 m.cat <- function(x, group, paired = F, is.ordered = F, default.unordered.unpaired.test = "Chisq") {
   if (is.ordered) {
     if (length(levels(group)) == 2) {
-      pv <- "wilcox"
+      pv <- "U-Test"
     } else {
-      pv <- "kruskal"
+      pv <- "Kruskal-Wallis-Test"
     }
   } else {
     if (paired) {
       if (length(levels(group)) == 2) {
-        pv <- "mcnemar"
+        pv <- "McNemar-Test"
       } else {
-        pv <- "cochran\\_q"
+        pv <- "Cochran's Q Test"
       }
     } else {
       if (default.unordered.unpaired.test=="Chisq"){
-        pv <- "chisq"
+        pv <- "Chi-squared Test"
       }
       else if (default.unordered.unpaired.test=="Fisher_boschloo"){
         if ((nrow(table(x,group))!= 2) | (ncol(table(x,group))!= 2)){
-          pv <- "Fisher\\_exact"
+          pv <- "Fisher's Exact Test"
         }
         else{
-          pv <- "Fisher\\_boschloo"
+          pv <- "Fisher-Boschloo-Test"
         }
       }
       else if (default.unordered.unpaired.test=="Fisher_exact"){
-        pv <- "Fisher\\_exact"
+        pv <- "Fisher's Exact Test"
       }
     }
   }
