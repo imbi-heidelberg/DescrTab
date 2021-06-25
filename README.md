@@ -2,6 +2,10 @@
 [![Codecov test coverage](https://codecov.io/gh/imbi-heidelberg/DescrTab/branch/master/graph/badge.svg)](https://codecov.io/gh/imbi-heidelberg/DescrTab?branch=master)
 
 # DescrTab
+
+!! DescrTab  IS DEPRECATED, PLEASE USE DescrTab2. https://github.com/imbi-heidelberg/DescrTab2 !!
+
+
 ## Create or print an output of a descriptive statistics table
 
 This package is supposed to be a good starting point for a descriptive analysis. 
